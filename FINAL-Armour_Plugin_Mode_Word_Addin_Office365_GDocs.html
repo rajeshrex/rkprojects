@@ -12613,6 +12613,152 @@
     /* only the two matters: the apps directory keeps the matters list */
     body.msx .bm-nav-item[data-pane]:not([data-pane="matters"]){display:none}
     body.msx .adk-minor [data-m="desk"]{display:none}
+
+    /* ══════════════════════════════════════════════════════════
+       ONE ARMOUR MARK EVERYWHERE — the gradient tile with the hexagon
+    ══════════════════════════════════════════════════════════ */
+    body.msx .unirail-brand-mark, body.msx .pbx-av, body.msx .agent-pill-icon, body.msx .msx-logo{
+      position:relative;background:linear-gradient(135deg,var(--accent),var(--magenta)) !important;color:#fff !important;
+      box-shadow:0 1px 3px #7c4dff40}
+    body.msx .unirail-brand-mark > *, body.msx .pbx-av > *, body.msx .agent-pill-icon > *{visibility:hidden}
+    body.msx .unirail-brand-mark::after, body.msx .pbx-av::after, body.msx .agent-pill-icon::after, body.msx .msx-logo::after{
+      content:'';position:absolute;inset:0;margin:auto;width:58%;height:58%;background:#fff;
+      -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M6 1L1.5 3.5v4L6 10.5l4.5-3v-4L6 1Z' fill='none' stroke='black' stroke-width='1.15' stroke-linejoin='round'/><circle cx='6' cy='6' r='1.55' fill='none' stroke='black' stroke-width='1.15'/></svg>") center/contain no-repeat;
+              mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M6 1L1.5 3.5v4L6 10.5l4.5-3v-4L6 1Z' fill='none' stroke='black' stroke-width='1.15' stroke-linejoin='round'/><circle cx='6' cy='6' r='1.55' fill='none' stroke='black' stroke-width='1.15'/></svg>") center/contain no-repeat}
+    body.msx .pbx-av{border-radius:8px}
+
+    /* ══════════════════════════════════════════════════════════
+       YOUR PROMPT vs ARMOUR'S OUTPUT — told apart at a glance
+    ══════════════════════════════════════════════════════════ */
+    body.msx .pbx-user{background:var(--accent) !important;color:#fff !important;border:0 !important;
+      box-shadow:0 2px 6px #6c4ef533 !important;position:relative;margin-top:16px}
+    body.msx .pbx-user::before{content:'You';position:absolute;top:-16px;right:4px;font:700 9.5px var(--font-sans);
+      letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+    body.msx .pbx-user .pbx-user-file{background:#ffffff26 !important;border-color:#ffffff40 !important;color:#fff !important}
+    body.msx .pbx-user .msx-via{background:#ffffff26;color:#fff}
+    body.msx .pbx-agent{position:relative}
+    body.msx .pbx-agent > .pbx-agent-body > .pbx-say, body.msx .pbx-agent > .pbx-agent-body > .pbx-summary{
+      background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--magenta);
+      border-radius:4px 12px 12px 12px;padding:10px 13px;box-shadow:var(--shadow-card)}
+    body.msx .pbx-agent > .pbx-agent-body::before{content:'ARMOUR';font:700 9.5px var(--font-sans);letter-spacing:.06em;
+      color:var(--magenta);margin-bottom:-6px}
+    body.msx .pbx-agent.msx-e > .pbx-agent-body::before{content:'ARMOUR'}
+
+    /* ══════════════════════════════════════════════════════════
+       THE NEXT PROMPT, ONE LINE IN THE CHAT BAR
+    ══════════════════════════════════════════════════════════ */
+    body.msx #pbxDockAim{display:block;margin:0 0 8px}
+    body.msx #pbxDockAim:empty{display:none}
+    .msx-aim:empty{display:none}
+    .msx-aim{margin:0 0 7px}
+    .msx-next{display:flex;align-items:center;gap:9px;width:100%;padding:7px 8px 7px 9px;cursor:pointer;text-align:left;
+      border:1px dashed var(--accent);border-radius:var(--r-md);background:var(--accent-soft);color:var(--ink);
+      font:600 12.5px var(--font-sans);transition:background .15s, box-shadow .15s}
+    .msx-next:hover{background:var(--panel);box-shadow:0 0 0 3px var(--accent-soft);border-style:solid}
+    .msx-nx-i{flex:none;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;background:var(--accent);color:#fff}
+    .msx-next.draft .msx-nx-i{background:var(--magenta)}
+    .msx-next.plug .msx-nx-i{background:#2b579a}
+    .msx-nx-i svg{width:13px;height:13px}
+    .msx-nx-t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .msx-nx-a{flex:none;display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:var(--r-pill);
+      background:#2b579a14;color:#2b579a;font:600 10px var(--font-sans);max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .msx-nx-a svg{width:10px;height:10px;flex:none}
+    .msx-nx-k{flex:none;font:700 9.5px var(--font-sans);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+    .msx-nx-go{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff}
+    .msx-nx-go svg{width:12px;height:12px}
+    .ap .msx-next{font-size:12px;padding:6px 7px}
+    .ap .msx-nx-k{display:none}
+
+    /* the research report's own actions */
+    .msr-ht small{display:block;margin-top:3px;font-size:11px;color:var(--ink-3)}
+    .msr-acts{flex:none;display:flex;gap:5px;align-self:center}
+    .msr-acts button{display:inline-flex;align-items:center;gap:5px;height:28px;padding:0 9px;cursor:pointer;border-radius:8px;
+      border:1px solid var(--line-strong);background:var(--panel);color:var(--ink-2);font:600 11px var(--font-sans)}
+    .msr-acts button:hover{border-color:var(--accent);color:var(--accent)}
+    .msr-acts button.ok{border-color:var(--green);color:var(--green)}
+    .msr-acts svg{width:13px;height:13px}
+    .ap .msr-acts button span{display:none}
+    .ap .msr-acts button{padding:0 7px}
+    .msr-p{margin:0;font-size:12.5px;line-height:1.6;color:var(--ink-2)}
+    .msr-a{margin:0 0 9px}
+    .msr-a b{display:block;font:650 12.5px var(--font-sans);color:var(--ink);margin-bottom:2px}
+    .msr-a p{margin:0;font-size:12.5px;line-height:1.6;color:var(--ink-2)}
+    .msr-n li::marker{color:var(--accent)}
+    .msx-folded .ra-h{border-bottom:0}
+
+    /* ══════════════════════════════════════════════════════════
+       PUBLISH HAND EDITS — the Office message bar
+    ══════════════════════════════════════════════════════════ */
+    .msx-pub{display:flex;align-items:center;gap:9px;padding:8px 14px;background:#fff4ce;border-bottom:1px solid #f2d36b;
+      font:500 12px var(--font-sans);color:#3b2f00}
+    .msx-pub b{font-weight:700}
+    .msx-pub .sp2{flex:1}
+    .msx-pub-i{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--magenta));color:#fff}
+    .msx-pub-i svg{width:12px;height:12px}
+    .msx-pub-b{flex:none;height:26px;padding:0 11px;border-radius:4px;border:1px solid #2b579a;background:#2b579a;color:#fff;
+      font:600 11.5px var(--font-sans);cursor:pointer}
+    .msx-pub-b.ghost{background:#fff;color:#2b579a}
+
+    /* ══════════════════════════════════════════════════════════
+       PLUGIN HOME
+    ══════════════════════════════════════════════════════════ */
+    .msx-home{position:absolute;left:0;right:0;bottom:0;z-index:41;overflow:auto;background:var(--panel);border-top:1px solid var(--line)}
+    .mh-top{padding:18px 16px 12px}
+    .mh-hi{font:400 22px/1.2 Georgia, 'Times New Roman', serif;color:var(--ink)}
+    .mh-hi i{color:var(--ink-2)}
+    .mh-sub{margin-top:4px;font-size:12px;color:var(--ink-3)}
+    .mh-s{margin-top:12px}
+    .mh-s input{border:0;outline:0;background:none;width:100%;font:500 12.5px var(--font-sans);color:var(--ink)}
+    .mh-l{padding:4px 10px 10px}
+    .mh-h{padding:8px 6px 6px;font:700 10px var(--font-sans);letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+    .mh-r{display:flex;align-items:flex-start;gap:10px;width:100%;padding:10px;border:1px solid transparent;border-radius:var(--r-md);
+      background:none;cursor:pointer;text-align:left;color:var(--ink)}
+    .mh-r:hover{background:var(--hover)}
+    .mh-r.on{background:var(--accent-soft)}
+    .mh-r .msc-ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center}
+    .mh-r .msc-ic svg{width:15px;height:15px}
+    .mh-x{flex:1;min-width:0}
+    .mh-x b{display:block;font:600 12.5px/1.3 var(--font-sans)}
+    .mh-x small{display:block;margin-top:2px;font-size:11px;color:var(--ink-3)}
+    .mh-x em{display:block;margin-top:4px;font-style:normal;font-size:11px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .mh-r.doc .cv-ic{width:28px;height:28px}
+    .mh-none{padding:6px;font-size:11.5px;color:var(--ink-3)}
+
+    /* ══════════════════════════════════════════════════════════
+       SIGN-IN — the Exterro Platform login page
+    ══════════════════════════════════════════════════════════ */
+    .agate.xlog{text-align:left;align-items:stretch;padding:28px 26px;
+      background:linear-gradient(180deg,#f4f1fd,#fbfaff);background-image:linear-gradient(#ece8fb 1px,transparent 1px),linear-gradient(90deg,#ece8fb 1px,transparent 1px),linear-gradient(180deg,#f4f1fd,#fbfaff);
+      background-size:24px 24px,24px 24px,auto}
+    .xl-logo{font:600 34px/1 'Segoe UI', var(--font-sans);letter-spacing:-.02em;color:#3a3a3c}
+    .xl-logo span{color:#f15a24}
+    .xl-logo sup{font-size:10px;vertical-align:top;margin-left:1px}
+    .xl-badge{display:inline-flex;align-items:center;gap:5px;margin-top:8px;padding:3px 9px;border-radius:var(--r-pill);
+      background:#fde6dc;border:1px solid #f8c6b0;color:#e2531f;font:700 10.5px var(--font-sans)}
+    .xl-badge i{width:6px;height:6px;border-radius:50%;background:#f15a24}
+    .xl-h{margin:16px 0 2px;font:800 24px/1.2 var(--font-sans);color:#14121c;text-align:left}
+    .xl-p{margin:0 0 16px;font-size:12.5px;color:#4b4a55;text-align:left}
+    .xl-l{display:block;margin:10px 0 5px;font:700 11.5px var(--font-sans);color:#3b3a44}
+    .xl-i{width:100%;height:38px;padding:0 12px;border-radius:9px;border:1px solid #d9d4f0;background:#ebe8f8;font:500 12.5px var(--font-sans);color:#1d1b29;outline:0}
+    .xl-pw{position:relative}
+    .xl-eye{position:absolute;right:10px;top:11px;color:#8a87a0}
+    .xl-eye svg{width:16px;height:16px}
+    .xl-btn{width:100%;height:40px;margin-top:18px;border:0;border-radius:10px;background:#f15a24;color:#fff;cursor:pointer;
+      font:700 13px var(--font-sans);box-shadow:0 6px 16px #f15a2440}
+    .xl-btn:hover{background:#e04e1b}
+    .xl-a{display:inline-block;margin-top:10px;font:600 11.5px var(--font-sans);color:#e2531f;cursor:pointer}
+    .xl-f{margin-top:18px;font-size:10.5px;color:#8a87a0}
+    .xl-otp{display:flex;gap:7px}
+    .xl-otp input{width:40px;height:44px;text-align:center;border-radius:9px;border:1px solid #d9d4f0;background:#fff;font:700 17px var(--font-sans);color:#1d1b29}
+    body.msx [data-arm="open"] > svg:first-child{display:none}
+    body.msx [data-arm="open"]::before{content:'';display:inline-block;flex:none;width:16px;height:16px;border-radius:5px;vertical-align:-3px;margin-right:5px;
+      background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M6 1L1.5 3.5v4L6 10.5l4.5-3v-4L6 1Z' fill='none' stroke='white' stroke-width='1.15' stroke-linejoin='round'/><circle cx='6' cy='6' r='1.55' fill='none' stroke='white' stroke-width='1.15'/></svg>") center/64% no-repeat,
+        linear-gradient(135deg,var(--accent),var(--magenta))}
+    body.msx .w-big[data-arm="open"]::before{width:24px;height:24px;border-radius:7px;margin:0 0 4px}
+    .agate.xlog .xl-h{font:800 24px/1.2 var(--font-sans);letter-spacing:-.01em;color:#14121c}
+    .agate.xlog .xl-badge{align-self:flex-start;width:max-content}
+    .agate.xlog .xl-logo{align-self:flex-start}
+    body.msx .adk-footbtn[aria-label="Desktop plugin"]{display:none}
   </style>
 <script>
 /* The custodian rows in the hold detail are static markup with inline
@@ -29830,6 +29976,10 @@ Legal Department</textarea>
       window.ARMADDIN.scope(R0.mtr || 'mtr');
       window.ARMADDIN.openReport(R0.id);
     });
+    /* the document is in Word before the sign-in finishes */
+    if (window.ARMADDIN.preload) window.ARMADDIN.preload(R0.id);
+    (function(){
+    });
   }
 
   /* the five, offered as cards */
@@ -30833,6 +30983,45 @@ Legal Department</textarea>
           cites:[5, 2, 10, 11, 13]}}
     };
 
+    /* ── the fuller report each round leaves: scope, analysis, next steps ── */
+    function more(R, method, analysis, next){ R.sum.method = method; R.sum.analysis = analysis; R.sum.next = next; }
+    more(INV.rounds.r1,
+      'Six sub-agents read the hotline intake, the investigation charter, MSA Amendment 2 and Schedule B, the FY2026 credit-note ledger, the CFO’s pricing memos, the #vendor-ops export and the J. Okafor exit record. Privileged advice from Bryce & Hall was excluded from the reading set.',
+      [['The rate actually paid', 'The ledger is the strongest evidence in the record. Five Greenfield credit notes were issued in FY2026; the first and last were calculated at Tier 2, but the three between February and April 2026 used the Tier 3 rate of 5.0%. Nothing in the volumes on the ledger explains the change, and the schedule reserves Tier 3 for volume above 120% of commitment.'],
+       ['The authority for that rate', 'Schedule B and Amendment 2 together leave no room for an informal tier change: a change needs the CFO’s sign-off before a credit note issues, and clause 4.3 bars side letters. The CFO’s FY2026 memo approves Tier 2 only. On the documents, the Tier 3 notes were issued without the authority the contract requires.'],
+       ['How the rate was agreed', 'This is the part of the allegation the record does not yet answer. The reporter points to the vendor-ops channel and to chats off the system. The channel export shows J. Okafor discussing the rebate schedule in the same months, but not an agreement with Greenfield.']],
+      ['Trace each Tier 3 credit note to its approver and the authority claimed.', 'Set the exit-interview account against the channel export.']);
+    more(INV.rounds.r2,
+      'Three sub-agents followed each Tier 3 credit note to its approval record, read the approval rules in Schedule B and Amendment 2, and set the timing of the approvals against the #vendor-ops activity and the exit interview.',
+      [['Approvals given outside authority', 'D. Osei approved CN-26-0139 and CN-26-0162 at Tier 3. As Contracts Manager he may approve credit notes within the assigned tier, but not a change of tier. Neither approval cites a CFO memo, and none exists in the record.'],
+       ['A credit note with no approval', 'CN-26-0171, issued on April 14, 2026, carries no approval at all. Whoever released it bypassed the control entirely; the ledger does not show who. This is a separate control failure from the two approvals above.'],
+       ['The timing', 'The Tier 3 notes cover the January to March 2026 volumes. J. Okafor’s channel activity peaks in February and March, with 14 messages mentioning Tier 3. At his exit interview he said he had no part in the rebate schedule. That account is contradicted by the record and should be put to him.']],
+      ['Establish what was preserved, and what was not.', 'Identify the evidence that would show an agreement with Greenfield.']);
+    more(INV.rounds.r3,
+      'Three sub-agents read the hold notice and its acknowledgements, the exit record and device return, and the index of the sources not yet collected.',
+      [['The channel that matters most', 'J. Okafor disclosed at exit that he discussed pricing with the Greenfield account manager on WhatsApp. That is the most likely place an agreement on the rate would appear. The device was returned on Sep 14, 2026 and nothing was collected from it.'],
+       ['A possible preservation lapse', 'A 12-month auto-delete rule was running on J. Okafor’s mailbox. The hold instructs custodians to suspend such rules; if it ran after the duty to preserve arose, mail from late 2025 may already be gone. Counsel will need to assess and, if necessary, disclose the loss.'],
+       ['Sources still outside the collection', 'The NOVA-SUP board holds 27 issues mentioning Greenfield and is not collected. S. Patel cannot be identified, so no hold has been issued. Both are quick to close and should be closed before interviews begin.']],
+      ['Raise the WhatsApp channel and the retention rule with counsel now.', 'Collect NOVA-SUP and resolve S. Patel before interviews.']);
+    more(PAT.rounds.r1,
+      'Six sub-agents read the complaint, both patents, teardown report TR-2026-031, the licensing log and the hold record. Trial counsel’s advice was excluded from the reading set.',
+      [["The '118 patent", "Teardown confirms four antennas and a switching module, and shows the Orbit 5 switching about 200 ms before the signal drop in 18 of 20 grip tests. That timing is strong circumstantial evidence of the prediction step in element (c), but the controller logic itself has not been seen."],
+       ["The '377 patent", 'The under-display sensor and an always-on sensor hub are observed. Whether matching happens on that hub, rather than on the application processor, cannot be determined from the hardware. The wake-on-match path is observed; the non-match path has not been tested.'],
+       ['Notice and wilfulness', 'The licensing log records a notice letter of March 14, 2025 identifying both patents and offering a licence, which ABC declined. That supports the wilfulness allegation and fixes the start of the damages period for pre-suit damages.']],
+      ["Test ABC's invalidity references against each claim element.", 'List what ABC must produce to prove the open elements.']);
+    more(PAT.rounds.r2,
+      "Three sub-agents set the patents' effective filing dates against ABC's references, read the prior-art search report and checked the invention disclosures and lab records.",
+      [['Both references are prior art', "Under the AIA, the test is the effective filing date. Reference A (2016) and Reference B (2018) both predate Sep 10, 2019 and Nov 2, 2020, so neither can be removed from the prior art by earlier conception evidence."],
+       ['Neither discloses every element', "Reference A switches on measured signal loss and has no prediction step, so it lacks element (c) of the '118 claim. Reference B wakes the main processor on a fingerprint and has no low-power co-processor, so it lacks element (b) of the '377 claim. Anticipation fails on both."],
+       ['The obviousness risk', "ABC has pleaded obviousness against the '118 patent. Expect a combination of Reference A with a prediction teaching. The bench tests in August 2019 and the grip-test results are the best evidence that the prediction step was not routine."]],
+      ['Identify the gaps in proof and the discovery needed to close them.', 'Map those needs against the case schedule.']);
+    more(PAT.rounds.r3,
+      'Three sub-agents read the teardown gaps, the scheduling order, the protective-order designations and the hold register.',
+      [['Proof that depends on ABC', "Two elements turn on code ABC holds: the prediction logic for element (c) of the '118 claim and the matching location for element (c) of the '377 claim. Without production, the contentions will rest on inference for both."],
+       ['The deadline that drives everything', 'Initial infringement contentions are due Nov 20, 2026. Requests for production served now may not be answered in time, so the contentions should plead the timing evidence and reserve the right to supplement.'],
+       ['Preservation and confidentiality', 'A. Novak, the X-series product manager, has not acknowledged hold LH-6230. Licensing correspondence is designated Outside Attorneys’ Eyes Only, which limits who at Acme can see the damages analysis.']],
+      ['Serve targeted requests for the firmware and sensor-hub source code.', 'Escalate the open hold acknowledgement.']);
+
     /* ════════════════════════════════════════════════════════════
        VERSION 1 — the structured document
     ════════════════════════════════════════════════════════════ */
@@ -31225,24 +31414,73 @@ Legal Department</textarea>
   function ms_weightCls(w){
     return /^Strong/.test(w) ? 'g' : /^Moderate|^Supporting|^Partly/.test(w) ? 'a' : /^Gap|^Risk/.test(w) ? 'r' : 'n';
   }
+  var SUMACT = '<span class="msr-acts">' +
+    '<button data-msa="copy" title="Copy the report">' + mxSV('<rect x="5" y="5" width="8" height="9" rx="1.3"/><path d="M3 11V3.3A1.3 1.3 0 0 1 4.3 2H10"/>') + '</button>' +
+    '<button data-msa="word" title="Download as Word">' + mxSV('<path d="M8 2.5v8m0 0L5 7.5M8 10.5l3-3M3 12.5v1h10v-1"/>') + '<span>Word</span></button>' +
+    '<button data-msa="pdf" title="Download as PDF">' + mxSV('<path d="M8 2.5v8m0 0L5 7.5M8 10.5l3-3M3 12.5v1h10v-1"/>') + '<span>PDF</span></button></span>';
   function ms_sumHtml(k, rk){
     var m = mxMK[k], R0 = m.rounds[rk], s = R0.sum, no = {r1:1, r2:2, r3:3}[rk];
-    return '<div class="msr">' +
+    return '<div class="msr" data-mk="' + k + '" data-rk="' + rk + '">' +
       '<div class="msr-h"><span class="msr-ic">' + mxMI.report + '</span>' +
-        '<div class="msr-ht"><span class="msr-k">Research summary · round ' + no + ' of 3 · ' + esc(m.id) + '</span>' +
-        '<b>' + esc(s.title) + '</b></div>' +
-        '<span class="msr-m"><b>' + s.agents + '</b> sub-agents<br><b>' + esc(s.read) + '</b> read</span></div>' +
+        '<div class="msr-ht"><span class="msr-k">Research report · round ' + no + ' of 3 · ' + esc(m.id) + '</span>' +
+        '<b>' + esc(s.title) + '</b><small>' + s.agents + ' sub-agents · ' + esc(s.read) + ' read · ' + esc(R0.time) + '</small></div>' +
+        SUMACT + '</div>' +
       '<div class="msr-bl"><span class="msr-bk">Bottom line</span><p>' + esc(s.bottom) + '</p></div>' +
+      (s.method ? '<div class="msr-sec"><h5>Scope and method</h5><p class="msr-p">' + esc(s.method) + '</p></div>' : '') +
       '<div class="msr-sec"><h5>Key findings</h5><ol class="msr-f">' +
         s.findings.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ol></div>' +
+      (s.analysis ? '<div class="msr-sec"><h5>Analysis</h5>' + s.analysis.map(function(a){
+          return '<div class="msr-a"><b>' + esc(a[0]) + '</b><p>' + esc(a[1]) + '</p></div>'; }).join('') + '</div>' : '') +
       '<div class="msr-sec"><h5>Evidence assessed</h5><table class="msr-t"><thead><tr><th>Evidence</th><th>What it shows</th><th>Weight</th></tr></thead><tbody>' +
         s.evidence.map(function(r){
           return '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td><td><span class="msr-w ' + ms_weightCls(r[2]) + '">' + esc(r[2]) + '</span></td></tr>';
         }).join('') + '</tbody></table></div>' +
-      '<div class="msr-sec"><h5>' + (rk === 'r3' ? 'Actions to raise now' : 'Open questions for the next round') + '</h5><ul class="msr-q">' +
+      '<div class="msr-sec"><h5>' + (rk === 'r3' ? 'Actions to raise now' : 'Open questions') + '</h5><ul class="msr-q">' +
         s.open.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
+      (s.next ? '<div class="msr-sec"><h5>Next in this research</h5><ul class="msr-q msr-n">' +
+        s.next.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' : '') +
       '<div class="msr-src"><span>Sources</span>' + s.cites.map(function(n){ return m.c(n); }).join('') + '</div>' +
     '</div>';
+  }
+  /* the summary report as blocks, for copying and downloading */
+  var SUMREC = {};
+  function sumBlocks(k, rk){
+    var m = mxMK[k], s = m.rounds[rk].sum, no = {r1:1, r2:2, r3:3}[rk];
+    var b = [{t:'sub', x:'Matter: ' + m.name + ' · ' + m.id + ' · research report, round ' + no + ' of 3 · ' + s.agents + ' sub-agents · ' + s.read + ' read'},
+             {t:'h1', x:'Bottom line'}, {t:'p', x:s.bottom}];
+    if (s.method) b.push({t:'h1', x:'Scope and method'}, {t:'p', x:s.method});
+    b.push({t:'h1', x:'Key findings'}, {t:'bullets', items2:s.findings});
+    if (s.analysis) { b.push({t:'h1', x:'Analysis'}); s.analysis.forEach(function(a){ b.push({t:'h2', x:a[0]}, {t:'p', x:a[1]}); }); }
+    b.push({t:'h1', x:'Evidence assessed'}, {t:'table', head:['Evidence', 'What it shows', 'Weight'], rows:s.evidence});
+    b.push({t:'h1', x:rk === 'r3' ? 'Actions to raise now' : 'Open questions'}, {t:'bullets', items2:s.open.map(esc)});
+    if (s.next) b.push({t:'h1', x:'Next in this research'}, {t:'bullets', items2:s.next.map(esc)});
+    return b.concat(msSources(m, s.cites.slice().sort(function(x, y){ return x - y; })));
+  }
+  function sumAct(k, rk, act, btn){
+    var m = mxMK[k], s = m.rounds[rk].sum, key = k + rk;
+    if (act === 'copy') {
+      var txt = s.title + '\n' + m.name + ' · ' + m.id + '\n\nBottom line\n' + s.bottom +
+        (s.method ? '\n\nScope and method\n' + s.method : '') + '\n\nKey findings\n' +
+        s.findings.map(function(x, i){ return (i + 1) + '. ' + plain(x); }).join('\n') +
+        (s.analysis ? '\n\nAnalysis\n' + s.analysis.map(function(a){ return a[0] + ' — ' + a[1]; }).join('\n') : '') +
+        '\n\nEvidence assessed\n' + s.evidence.map(function(r){ return r[0] + ' — ' + r[1] + ' (' + r[2] + ')'; }).join('\n') +
+        '\n\nOpen questions\n' + s.open.map(function(x){ return '• ' + x; }).join('\n');
+      var fb = function(){ var ta = document.createElement('textarea'); ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (x) {} ta.remove(); };
+      try { var pr = navigator.clipboard && navigator.clipboard.writeText(txt); if (pr && pr.catch) pr.catch(fb); else if (!pr) fb(); } catch (e) { fb(); }
+      if (btn) { btn.classList.add('ok'); setTimeout(function(){ btn.classList.remove('ok'); }, 1400); }
+      toast('Research report copied to the clipboard.');
+      return;
+    }
+    if (!SUMREC[key]) {
+      var R0 = makeReport({id:m.rid.replace('-S', '-R' + rk.slice(1)), kind:'structured', name:'Research report',
+        file:m.id + '_Research_Report_Round_' + rk.slice(1) + '.docx', q:s.title, subs:[], sources:m.sources});
+      R0.versions = []; R0.act = []; R0.mname = m.name; R0.mnum = m.id;
+      R0.add(sumBlocks(k, rk), 'Research agent', 'Command Center', 'Research report, round ' + rk.slice(1));
+      SUMREC[key] = R0;
+    }
+    var R1 = SUMREC[key];
+    dlReport(R1, R1.cur(), act === 'pdf' ? 'pdf' : 'docx', act === 'pdf' && btn ? btn.querySelector('span') : null);
   }
 
   /* ── the card a version leaves in the chat ── */
@@ -31358,6 +31596,15 @@ Legal Department</textarea>
     if (ms_show(k) && e.t === 'ver') msNext();
   });
 
+  /* a matter's chat, opened fresh: a short welcome, and the first
+     prompt waiting in the chat bar */
+  function msOpen(k){
+    var m = mxMK[k];
+    msBegin(k);
+    A.agentSay('This is the research chat for <b>' + esc(m.name) + '</b> (' + esc(m.id) + ' \u00b7 ' + esc(m.type.toLowerCase()) + '). ' +
+      'Research runs here in six steps, each one building on the last \u2014 the next prompt is waiting in the chat bar below. Click it to run it.');
+    msNext();
+  }
   function msBegin(k){
     mxMS[k].started = true;
     startThread();
@@ -31381,13 +31628,9 @@ Legal Department</textarea>
       msBegin(k);
       if (mxMS[k].frag) mxinEl.appendChild(mxMS[k].frag);
       mxMS[k].frag = null;
-      if (mxMS[k].step) msNext();
+      msNext();
       A.bottom();
-    } else {
-      mxinEl.innerHTML = '';
-      wscol.classList.remove('pbx-running');
-      var u = document.getElementById('unirail'); if (u) u.classList.remove('collapsed');
-    }
+    } else msOpen(k);
     msLanding();
     msRows();
     ms_renderChip(true);
@@ -31492,7 +31735,14 @@ Legal Department</textarea>
           var ok = blk.querySelector('.ra-ok'); ok.innerHTML = IC.check + 'Done'; ok.classList.add('fin');
           var s2 = blk.querySelector('[data-s2]'); s2.hidden = false; s2.classList.add('done');
           A.bottom();
-          setTimeout(function(){ mxMS[k].busy--; done(body); }, 450);
+          setTimeout(function(){
+            mxMS[k].busy--;
+            var rb = blk.querySelector('.ra-b'); if (rb) rb.hidden = true;
+            var hb = blk.querySelector('[data-hide]'); if (hb) hb.textContent = 'Show work';
+            blk.classList.add('msx-folded');
+            done(body);
+            if (!mxMS[k].busy) setTimeout(msNext, 60);
+          }, 450);
           return;
         }
         var s = cfg.subs[i];
@@ -31591,55 +31841,43 @@ Legal Department</textarea>
   /* ══════════════════════════════════════════════════════════
      THE PATH
   ══════════════════════════════════════════════════════════ */
-  function msNext(host){
-    var k = mxACT, m = mxMK[k], s = mxMS[k];
-    document.querySelectorAll('#pbxIn .rsq').forEach(function(x){ x.remove(); });
-    if (s.step < 4) {
-      var el = node('<div class="rsq"><div class="rsq-l">Next in ' + esc(m.short) + ' · step ' + (s.step + 1) +
-        ' of ' + m.path.length + '</div><div class="rsq-r"></div></div>');
-      var row = el.querySelector('.rsq-r');
-      m.path.forEach(function(p, i){
-        if (i < s.step) return;
-        var c = node('<button class="rsq-c' + (i === s.step ? ' on' : ' later') + '"' + (i === s.step ? '' : ' disabled') + '>' +
-          '<span class="rsq-n">' + (i + 1) + '</span>' + esc(p.chip) +
-          (p.attach ? '<span class="rsq-a">' + IC.docsm + esc(p.attach) + '</span>' : '') + '</button>');
-        if (i === s.step) c.addEventListener('click', function(){ ms_run(p.k); });
-        row.appendChild(c);
-      });
-      (host || mxinEl).appendChild(el);
-      A.bottom();
-      return;
-    }
-    var R0 = s.rec, cur = R0.cur();
-    var el2 = node('<div class="rsq msq"><div class="rsq-l">' + esc(m.docName) + ' is at <b>v' + cur.v + '</b> · ' +
-      'keep drafting, or bring in more research — in any order</div></div>');
+  /* the next scripted action, as one line in the chat bar */
+  function msNextAction(k){
+    var m = mxMK[k], s = mxMS[k];
     if (s.step < m.path.length) {
       var p = m.path[s.step];
-      var nx = node('<div class="rsq-r"><button class="rsq-c on"><span class="rsq-n">' + (s.step + 1) + '</span>' + esc(p.chip) + '</button></div>');
-      nx.querySelector('button').addEventListener('click', function(){ ms_run(p.k); });
-      el2.appendChild(nx);
+      if (!(p.op && s.rec && ms_opDone(k, ms_opOf(k, p.op))))
+        return {key:p.k, t:p.chip, attach:p.attach, tag:'Step ' + (s.step + 1) + ' of ' + m.path.length,
+                lane:/^r/.test(p.k) || p.k === 'd3' ? 'research' : 'draft'};
+      s.step++;
+      return msNextAction(k);
     }
-    [['draft', 'Drafting agent', mxMI.draft, m.draft], ['research', 'Research agent', mxMI.search, m.research]].forEach(function(L){
-      var lane = node('<div class="msq-l"><span class="msq-h ' + L[0] + '">' + L[2] + L[1] + '</span><div class="msq-c"></div></div>');
-      L[3].forEach(function(op){
-        if (s.step < m.path.length && m.path[s.step].op === op.id) return;
-        var done = ms_opDone(k, op);
-        var b = node('<button class="rsq-c msq-b' + (done ? ' done' : '') + '"' + (done ? ' disabled' : '') + '>' +
-          (done ? IC.check : '') + esc(op.chip) + '</button>');
-        if (!done) b.addEventListener('click', function(){ ms_run('op:' + op.id); });
-        lane.querySelector('.msq-c').appendChild(b);
-      });
-      el2.appendChild(lane);
+    var order = [m.draft[1], m.research[1], m.draft[2], m.research[2], m.draft[0], m.research[0]];
+    for (var i = 0; i < order.length; i++) {
+      var op = order[i];
+      if (op && !ms_opDone(k, op)) return {key:'op:' + op.id, t:op.chip, tag:laneName(k, op), lane:ms_laneOf(k, op)};
+    }
+    return {key:'plug', t:'Open v' + s.rec.cur().v + ' of the ' + m.docName.toLowerCase() + ' in the Word plugin', tag:'Word plugin', lane:'plug'};
+  }
+  function laneName(k, op){ return ms_laneOf(k, op) === 'research' ? 'Research agent' : 'Drafting agent'; }
+  var NXIC = {research:mxMI.search, draft:mxMI.draft, plug:IC.puzzle};
+  function msNext(){
+    var k = mxACT, aim = $('pbxDockAim');
+    document.querySelectorAll('#pbxIn .rsq').forEach(function(x){ x.remove(); });
+    if (!aim) return;
+    aim.innerHTML = '';
+    if (!mxMS[k].started || mxMS[k].busy) return;
+    var n = msNextAction(k);
+    var b = node('<button class="msx-next ' + n.lane + '" title="Click to run this prompt"><span class="msx-nx-i">' + NXIC[n.lane] + '</span>' +
+      '<span class="msx-nx-t">' + esc(n.t) + '</span>' +
+      (n.attach ? '<span class="msx-nx-a">' + IC.docsm + esc(n.attach) + '</span>' : '') +
+      '<span class="msx-nx-k">' + esc(n.tag) + '</span><span class="msx-nx-go">' + mxMI.up + '</span></button>');
+    b.addEventListener('click', function(){
+      if (n.key === 'plug') { var R0 = mxMS[k].rec; R0.docAt = R0.cur().v; prToAddin(R0); return; }
+      ms_run(n.key);
     });
-    var ft = node('<div class="rsq-r msq-f"></div>');
-    var a = node('<button class="rsq-c on">' + IC.puzzle + 'Open v' + cur.v + ' in the Word plugin</button>');
-    a.addEventListener('click', function(){ R0.docAt = R0.cur().v; prToAddin(R0); });
-    var b2 = node('<button class="rsq-c">' + IC.docsm + 'Every version of this ' + esc(m.docName.toLowerCase().replace(/^.* /, '')) + '</button>');
-    b2.addEventListener('click', function(){ ms_run('versions'); });
-    ft.appendChild(a); ft.appendChild(b2);
-    el2.appendChild(ft);
-    (host || mxinEl).appendChild(el2);
-    A.bottom();
+    aim.appendChild(b);
+    aim.classList.add('on');
   }
 
   function ms_run(key, said){
@@ -31662,6 +31900,7 @@ Legal Department</textarea>
     var p = idx > -1 ? m.path[idx] : null;
     document.querySelectorAll('#pbxIn .rsq').forEach(function(x){ x.remove(); });
     if (!s.started) msBegin(k);
+    var aim0 = $('pbxDockAim'); if (aim0) aim0.innerHTML = '';
     var text = said || (p ? p.said : op.said), lane = op ? ms_laneOf(k, op) : (p.k.charAt(0) === 'r' ? 'research' : 'draft');
     if (window.ARMMODE) {
       if (lane === 'draft' || (p && p.k === 'd1')) window.ARMMODE.set('draft', 'draft');
@@ -31898,6 +32137,8 @@ Legal Department</textarea>
     if (e.target.closest('.ap, .addin, #armAddin, .ax-root')) return;
     var c = e.target.closest('[data-cit][data-mtr]');
     if (c && !c.closest('.pg-in')) { e.preventDefault(); srcHide(); ms_openDoc(c.dataset.mtr, +c.dataset.cit); return; }
+    var sa = e.target.closest('[data-msa]');
+    if (sa) { var sc = sa.closest('.msr'); if (sc) sumAct(sc.dataset.mk, sc.dataset.rk, sa.dataset.msa, sa); return; }
     var a = e.target.closest('[data-mva]');
     if (!a) return;
     var card = a.closest('.msv'); if (!card) return;
@@ -31962,15 +32203,14 @@ Legal Department</textarea>
     entryEl:ms_entryEl, entryHtml:ms_entryHtml, sumHtml:ms_sumHtml, verHtml:ms_verHtml, conv:function(k){ return mxCONV[k]; },
     post:ms_mPost, listen:function(f){ mxLIS.push(f); }, rec:function(k){ return mxMS[k] && mxMS[k].rec; },
     op:ms_opOf, ops:function(k){ var m = mxMK[k]; return {draft:m.draft, research:m.research}; },
-    opDone:ms_opDone, stamp:ms_stamp, apply:ms_applyOps, select:msSelect, openDoc:ms_openDoc,
+    opDone:ms_opDone, sumAct:sumAct, status:msStatus, next:function(k){ return msNextAction(k); }, stamp:ms_stamp, apply:ms_applyOps, select:msSelect, openDoc:ms_openDoc,
     dl:function(k, vno, kind){ var R0 = mxMS[k].rec; dlReport(R0, R0.byNo(vno), kind); }
   };
   window.ARMRSX = {run:ms_run, stamp:ms_stamp, route:ms_route, synced:function(){}, rec:null,
                    step:function(){ return mxMS[mxACT].step; }};
   document.body.classList.add('rsx', 'msx');
-  msLanding();
   msRows();
-  setTimeout(function(){ ms_renderChip(); }, 0);
+  setTimeout(function(){ msOpen(mxACT); msRows(); ms_renderChip(); }, 0);
 
   DK.fileOnDesk = function(f){ if (DK.files.indexOf(f) < 0) DK.files.push(f); paint(); };
   DK.openWord = openWord;
@@ -32736,6 +32976,7 @@ window.__armAddinBoot = function () {
       '<span class="sp2"></span>' + (S.signed ? (online() ? '<span class="lv"><i></i>Live</span>'
         : '<span class="lv off"><i></i>Offline' + (S.queued ? ' · ' + S.queued + ' queued' : '') + '</span>') +
       '<button class="hb" data-act="signout" title="Sign out of Exterro">' + IC.out + '</button>' : '') +
+      (S.signed && window.MSX ? '<button class="hb" data-act="home" title="Home — all chats">' + HOMEIC + '</button>' : '') +
       '<button class="hb" data-act="hide" title="Hide panel">' + IC.x + '</button></div>'));
     if (!S.signed) { pane.appendChild(gateEl()); wirePane(); return; }
     pane.appendChild(scopeEl());
@@ -32745,12 +32986,13 @@ window.__armAddinBoot = function () {
       '<div class="comp" id="comp"><div class="picker" id="picker"><div class="picker-h">' + IC.star +
       '<b>Sample prompts</b><span class="sp2"></span><span class="picker-h-n"></span><button class="x" data-act="closepick">' + IC.x + '</button></div>' +
       '<div class="picker-b"></div><div class="picker-f">Prompts change with the host and the matter you have selected. Type to filter, or write your own.</div></div>' +
-      '<div class="pbx-dock-box"><textarea rows="1" id="ta"></textarea>' +
+      '<div class="pbx-dock-box"><div class="msx-aim" id="msxAim"></div><textarea rows="1" id="ta"></textarea>' +
       '<div class="pbx-dock-row"><div class="spacer"></div><button class="send" data-act="send" aria-label="Send">' + IC.send + '</button></div></div></div></div>'));
     pane.appendChild(body);
     logEl = $('#log'); compEl = $('#comp'); pickEl = $('#picker'); taEl = $('#ta');
     taEl.placeholder = placeholder();
     paintThread(); paintRecords(); paintActivity();
+    if (typeof msxAim === 'function') setTimeout(msxAim, 0);
     wirePane();
   }
   function paintTabs() {
@@ -32767,6 +33009,8 @@ window.__armAddinBoot = function () {
   function gateEl() {
     var el = node('<div class="agate"></div>');
     var client = HOSTS[S.host].client;
+    if (window.MSX && gateStep < 2) { el.className = 'agate xlog'; el.innerHTML = msxGate(gateStep); return el; }
+    if (window.MSX && gateStep === 2) gateStep = 4;
     if (gateStep === 0) {
       el.innerHTML = MARK + '<h4>ARMOUR in ' + (hostName()) + '</h4>' +
         '<p>Sign in with your Exterro login to work your matters, holds and preservation here, without leaving the document.</p>' +
@@ -32807,6 +33051,7 @@ window.__armAddinBoot = function () {
           paintPane();
           greet();
           if (PENDING) { var pf = PENDING; PENDING = null; setTimeout(pf, 700); }
+          else if (window.MSX) setTimeout(msxHome, 250);
         }, 300);
       })();
     }
@@ -32859,6 +33104,7 @@ window.__armAddinBoot = function () {
       }
       var a = e.target.closest('[data-act]'); if (!a) return;
       var k = a.dataset.act;
+      if (k === 'home') { msxHome(); return; }
       if (k === 'hide') { pane.classList.add('hid'); showReopen(true); }
       if (k === 'signout') { S.signed = false; gateStep = 0; SCOPES.forEach(function (s) { S.threads[s.k] = []; }); paintPane(); toast('Signed out of Exterro in this panel.'); }
       if (k === 'scope') { var l = $('#scList'); if (l) l.classList.toggle('on'); }
@@ -35100,6 +35346,7 @@ window.__armAddinBoot = function () {
     flowDoc(revHtml());
     revBar();
     words();
+    if (typeof msxAim === 'function') setTimeout(msxAim, 0);
   }
   function revBar() {
     var h = activeHost(); if (!h) return;
@@ -35166,7 +35413,7 @@ window.__armAddinBoot = function () {
       window.MSX.post(R0.mtr, { t: 'dec', acc: acc.length, n: REV_LAST, surf: HOSTS[S.host].surface, org: 'plugin' });
       window.MSX.post(R0.mtr, { t: 'ver', v: v.v, by: ME.n, say: 'Accepted in ' + hostName() + ' and saved as v' + v.v,
         surf: HOSTS[S.host].surface, queued: !online(), org: 'plugin' });
-      paintRail();
+      paintRail(); msxAim();
       toast('v' + v.v + ' saved' + (online() ? ' · synced to the Armour Platform' : ' · queued for the Armour Platform'));
       return;
     }
@@ -36305,6 +36552,7 @@ window.__armAddinBoot = function () {
   function API_OPEN(id) {
     var f = reportFiles().filter(function (x) { return x.rpt === id; })[0];
     if (f) loadFile(f);
+    var bt = $('.br-tab [data-fn2]', activeHost()); if (bt) bt.textContent = HOSTS[S.host].file;
   }
 
   /* the drafting and research the document can still take */
@@ -36340,12 +36588,10 @@ window.__armAddinBoot = function () {
     say('<div class="pbx-say"><b>' + esc(R0.file) + '</b> is open at <b>v' + d.v + '</b>' +
       (n > 0 ? '. ARMOUR has <b>v' + cur.v + '</b>, ' + n + ' version' + (n === 1 ? '' : 's') + ' newer — open it from the card above.'
              : ', the newest version.') +
-      ' Ask for a redraft or more research here; every change comes into the page as a tracked change for you to accept.</div>',
-      function (b) {
-        b.appendChild(msxLanes(k));
-        b.appendChild(btnRow([{ t: 'Citations in this document', ghost: true, go: citList }]));
-      });
+      ' The next prompt is in the chat bar \u2014 every change comes into the page as a tracked change for you to accept. Edit the page yourself and you can publish your edits back to ARMOUR as a version.</div>',
+      null);
     log('Matter document', 'Opened in ' + hostName(), R0.id + ' · v' + d.v);
+    MSXDIRTY = false; msxPubBar(); msxAim();
   }
 
   /* one drafting or research ask, as tracked changes */
@@ -36469,6 +36715,149 @@ window.__armAddinBoot = function () {
     msxOp((base && rs.filter(function (x) { return x.make(base).length; })[0]) || rs[0]);
   };
 
+
+  /* ══════════════════════════════════════════════════════════════
+     ONE LINE IN THE CHAT BAR — the next thing to do, ready to click
+  ══════════════════════════════════════════════════════════════ */
+  var MSXDIRTY = false;
+  function msxNextAct() {
+    var k = msxK(); if (!k) return null;
+    var R0 = MSXA.rec(k), m = MSXA.byKey(k);
+    if (!R0) return null;
+    if (!rsxOpen()) return { t: 'Open the ' + m.docName.toLowerCase() + ' (v' + R0.cur().v + ') in this document', tag: 'Open', lane: 'plug',
+      go: function () { msxLoad(R0, R0.cur().v); } };
+    if (REV) {
+      var open = revOpen();
+      if (open) return { t: 'Accept all ' + open + ' tracked change' + (open === 1 ? '' : 's') + ' in the document', tag: 'Review', lane: 'draft',
+        go: function () { revAll(true); msxAim(); } };
+      return { t: 'Save the reviewed document to ARMOUR as v' + (R0.versions.length + 1), tag: 'Sync', lane: 'plug', go: revFinish };
+    }
+    if (MSXDIRTY) return { t: 'Publish my edits to ARMOUR as v' + (R0.versions.length + 1), tag: 'Publish', lane: 'plug',
+      go: function () { msxPublish(); } };
+    var d = rptDocV(), o = MSXA.ops(k);
+    if (d.v < R0.cur().v) return { t: 'Update this document to v' + R0.cur().v + ' from ARMOUR', tag: 'Sync', lane: 'plug',
+      go: function () { msxLoad(R0, R0.cur().v); } };
+    var order = [o.draft[1], o.research[1], o.draft[2], o.research[2], o.draft[0], o.research[0]];
+    for (var i = 0; i < order.length; i++) {
+      var op = order[i];
+      if (op && op.make(d.blocks).length) return { t: op.chip, tag: o.research.indexOf(op) > -1 ? 'Research agent' : 'Drafting agent',
+        lane: o.research.indexOf(op) > -1 ? 'research' : 'draft', go: function () { run('msx:' + op.id); } };
+    }
+    return { t: 'Show the citations in this document', tag: 'Citations', lane: 'research', go: citList };
+  }
+  function msxAim() {
+    var aim = $('#msxAim'); if (!aim) return;
+    aim.innerHTML = '';
+    if (!S.signed) return;
+    var n = msxNextAct(); if (!n) return;
+    var ic = n.lane === 'research' ? IC.search : n.lane === 'draft' ? IC.track : IC.doc;
+    var b = node('<button class="msx-next ' + n.lane + '" title="Click to run this prompt"><span class="msx-nx-i">' + ic + '</span>' +
+      '<span class="msx-nx-t">' + esc(n.t) + '</span><span class="msx-nx-k">' + esc(n.tag) + '</span></button>');
+    b.addEventListener('click', function () { aim.innerHTML = ''; n.go(); });
+    aim.appendChild(b);
+  }
+
+  /* ══════════════════════════════════════════════════════════════
+     EDITED BY HAND — PUBLISH THE CHANGES TO ARMOUR
+     Typing in an ARMOUR-connected document raises the Office-style
+     message bar: the edits can be published back as the next version,
+     which lands in the matter chat like any other.
+  ══════════════════════════════════════════════════════════════ */
+  function msxPubBar() {
+    var h = activeHost(); if (!h) return;
+    var old = $('.msx-pub', h);
+    if (!MSXDIRTY || !rsxOpen() || REV) { if (old) old.remove(); return; }
+    if (old) return;
+    var R0 = RPT();
+    var bar = node('<div class="msx-pub"><span class="msx-pub-i">' + IC.push + '</span>' +
+      '<b>ARMOUR</b><span>This document has edits that are not on the Armour Platform yet. Publish them to sync <b>' +
+      esc(R0.file) + '</b> as v' + (R0.versions.length + 1) + ' in the matter chat.</span><span class="sp2"></span>' +
+      '<button class="msx-pub-b" data-pub>Publish changes to ARMOUR</button>' +
+      '<button class="msx-pub-b ghost" data-pubx>Discard edits</button></div>');
+    $('[data-pub]', bar).addEventListener('click', msxPublish);
+    $('[data-pubx]', bar).addEventListener('click', function () { MSXDIRTY = false; msxLoad(RPT(), rptDocV().v); });
+    var rv = $('[data-rvbar]', h);
+    if (rv && rv.parentNode) rv.parentNode.insertBefore(bar, rv); else h.insertBefore(bar, h.firstChild);
+  }
+  function msxPublish() {
+    MSXDIRTY = false; msxPubBar();
+    user('Publish my edits to ARMOUR.');
+    rptSave();
+    setTimeout(msxAim, 2400);
+  }
+  document.addEventListener('input', function (e) {
+    if (!e.target.closest || !e.target.closest('.pg-in')) return;
+    if (!S.signed || !rsxOpen() || REV) return;
+    if (!MSXDIRTY) { MSXDIRTY = true; msxPubBar(); msxAim(); log('Matter document', 'Edited by hand in ' + hostName(), RPT().file); }
+  });
+
+  /* ══════════════════════════════════════════════════════════════
+     HOME — every matter chat this user has, as on the platform
+  ══════════════════════════════════════════════════════════════ */
+  var HOMEIC = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7.2 8 2.6l5.5 4.6V13a.8.8 0 0 1-.8.8H9.6V10H6.4v3.8H3.3a.8.8 0 0 1-.8-.8Z"/></svg>';
+  function msxHomeClose() { var v = $('.msx-home', pane); if (v) v.remove(); }
+  function msxHome() {
+    if (!S.signed) return;
+    msxHomeClose(); cvClose();
+    var head = $('.ap-head', pane);
+    var hr = new Date().getHours();
+    var el = node('<div class="msx-home"><div class="mh-top"><div class="mh-hi">Good ' + (hr < 12 ? 'morning' : hr < 17 ? 'afternoon' : 'evening') +
+      ', <i>' + esc(ME.n) + '</i></div><div class="mh-sub">Your ARMOUR chats — the same ones as on the Armour Platform.</div>' +
+      '<div class="hp-search mh-s"><input placeholder="Search chats"></div></div>' +
+      '<div class="mh-l"><div class="mh-h">Matter chats</div></div>' +
+      '<div class="mh-l" data-docs><div class="mh-h">Matter documents</div></div></div>');
+    var list = el.querySelectorAll('.mh-l')[0], docs = $('[data-docs]', el);
+    MSXA.matters.forEach(function (m) {
+      var c = MSXA.conv(m.k), last = c[c.length - 1];
+      var b = node('<button class="mh-r' + (S.scope === m.k ? ' on' : '') + '"><span class="msc-ic ' + m.k + '">' + (m.k === 'inv' ? (IC.hold || IC.doc) : IC.matter) + '</span>' +
+        '<span class="mh-x"><b>' + esc(m.name) + '</b><small>' + esc(m.type) + ' · ' + esc(MSXA.status(m.k)) + '</small>' +
+        '<em>' + (last ? esc(last.t === 'user' ? '“' + last.text + '”' : last.t === 'ver' ? 'v' + last.v + ' · ' + (last.say || '') : last.t === 'sum' ? 'Research report · round ' + last.rk.slice(1) : 'Updated') + ' · ' + esc(last.at) : 'No messages yet') + '</em></span>' +
+        '<span class="msc-tag">' + esc(m.id) + '</span></button>');
+      b.addEventListener('click', function () {
+        msxHomeClose();
+        if (!S.threads[m.k].__seeded) msxSeed(m.k);
+        S.scope = m.k; S.tab = 'chat'; paintPane();
+        if (!S.threads[m.k].length) greet();
+      });
+      list.appendChild(b);
+      var R0 = MSXA.rec(m.k);
+      if (R0) {
+        var d = node('<button class="mh-r doc"><span class="cv-ic docx">W</span><span class="mh-x"><b>' + esc(R0.file) + '</b>' +
+          '<small>' + esc(m.docName) + ' · v' + R0.cur().v + ' · ' + esc(R0.cur().surf) + '</small></span></button>');
+        d.addEventListener('click', function () { msxHomeClose(); API_SCOPE(m.k); msxLoad(R0, R0.cur().v); });
+        docs.appendChild(d);
+      }
+    });
+    if (docs.querySelectorAll('.mh-r').length === 0) docs.appendChild(node('<div class="mh-none">Documents appear here once ARMOUR writes one for a matter.</div>'));
+    $('input', el).addEventListener('input', function () {
+      var q = this.value.toLowerCase();
+      el.querySelectorAll('.mh-r').forEach(function (r) { r.style.display = r.textContent.toLowerCase().indexOf(q) > -1 ? '' : 'none'; });
+    });
+    el.style.top = (head ? head.offsetTop + head.offsetHeight : 47) + 'px';
+    pane.appendChild(el);
+  }
+
+  /* ══════════════════════════════════════════════════════════════
+     SIGN-IN — the Exterro Platform login, then a one-time code
+  ══════════════════════════════════════════════════════════════ */
+  var XLOGO = '<div class="xl-logo">e<span>x</span>terro<sup>®</sup></div>';
+  function msxGate(step) {
+    if (step === 0)
+      return XLOGO + '<span class="xl-badge"><i></i>ARMOUR Platform</span>' +
+        '<h4 class="xl-h">Welcome back</h4><p class="xl-p">Sign in to continue to ARMOUR in ' + esc(hostName()) + '</p>' +
+        '<label class="xl-l">Username</label><input class="xl-i" placeholder="Enter your username" value="' + esc(ME.email) + '">' +
+        '<label class="xl-l">Password</label><div class="xl-pw"><input class="xl-i" type="password" value="prototype-pass">' +
+        '<span class="xl-eye"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1.5 8s2.4-4.5 6.5-4.5S14.5 8 14.5 8 12.1 12.5 8 12.5 1.5 8 1.5 8Z"/><circle cx="8" cy="8" r="2"/></svg></span></div>' +
+        '<button class="xl-btn" data-g="1">Sign in</button><a class="xl-a">Forgot password?</a>' +
+        '<div class="xl-f">' + esc(HOSTS[S.host].client) + ' · secure sign-in to the Exterro Platform</div>';
+    return XLOGO + '<span class="xl-badge"><i></i>ARMOUR Platform</span>' +
+      '<h4 class="xl-h">Verify it’s you</h4><p class="xl-p">Enter the 6-digit code sent to the email on your Exterro account, ' +
+      esc(ME.email.replace(/^(.).*(@.*)$/, '$1•••$2')) + '.</p>' +
+      '<div class="xl-otp">' + [4, 8, 2, 9, 1, 5].map(function (n) { return '<input maxlength="1" value="' + n + '">'; }).join('') + '</div>' +
+      '<button class="xl-btn" data-g="1">Verify and sign in</button><a class="xl-a">Resend code</a>' +
+      '<div class="xl-f">The code expires in 10 minutes.</div>';
+  }
+
   /* ══════════════════════════════════════════════════════════════
      BOOT
   ══════════════════════════════════════════════════════════════ */
@@ -36530,6 +36919,13 @@ window.__armAddinBoot = function () {
     if (f) loadFile(f); else toast('That report is not on this device yet.');
   };
   API.toast = toast;
+  API.preload = function (id) {
+    var f = reportFiles().filter(function (x) { return x.rpt === id; })[0]; if (!f) return;
+    HOSTS[S.host].file = f.n;
+    var g = rptFileNow(f);
+    quietLoad(g); setFile(g.n); words(); paintRail();
+    if (typeof rptStamp === 'function') rptStamp();
+  };
   if (window.MSX) {
     var hk = S.host;
     ['offline', 'word', 'w365'].forEach(function (k) {
